@@ -1,0 +1,126 @@
+You are a senior frontend engineer and UI designer.
+
+Build a minimal, single-screen PWA to-do app called "InkTask".
+
+This is NOT a complex product.
+It is a calm, expressive, hand-drawn style task list meant to live on the desktop / mobile home screen.
+
+================================
+CORE GOAL
+================================
+A one-page to-do app with strong emotional feedback:
+- Satisfaction when tasks are completed
+- Playful, doodle-like energy
+- Simple, focused, no distractions
+
+================================
+TECH REQUIREMENTS (CRITICAL)
+================================
+- Plain HTML, CSS, Vanilla JavaScript only
+- No frameworks
+- No build tools
+- One single page (index.html)
+- Use localStorage for data
+- Must work offline
+- Must be installable as a PWA
+- MUST NOT use Replit branding or logo
+
+================================
+FILES TO CREATE
+================================
+- index.html
+- style.css
+- app.js
+- manifest.json
+- service-worker.js
+
+================================
+FUNCTIONAL REQUIREMENTS
+================================
+- Add task (inline input at bottom)
+- Toggle task complete (checkbox)
+- Delete task (small × button)
+- Optional deadline (simple date input)
+- Tasks stored in localStorage
+- Show task states:
+  - completed → strikethrough + faded
+  - due soon → orange date
+  - overdue → red date
+- Footer text:
+  "Stored locally · Offline ready"
+  "Completed X / Y"
+
+================================
+LAYOUT (ONE SCREEN ONLY)
+================================
+- Centered app container
+- No sidebar
+- No settings page
+- No routing
+- No modals
+
+Structure:
+- Header:
+  - Left: InkTask (handwritten feeling)
+  - Right: Today’s date
+- Main list:
+  - Vertical list of tasks (max ~8 visible)
+  - Each task:
+    [ ] Task title .................. Deadline   ×
+- Bottom:
+  - Inline “+ Add task…” input
+- Footer:
+  - Small metadata text
+
+================================
+VISUAL STYLE (VERY IMPORTANT)
+================================
+- Hand-drawn / doodle / sketch style
+- Thick black outlines
+- Slightly uneven lines
+- Paper-like off-white background
+- Marker / pencil feel
+- Expressive but not childish
+- Calm, confident, slightly unhinged joy
+
+The UI should feel like:
+"A designer’s personal sketchbook to-do list that actually works."
+
+================================
+EMOTIONAL DETAILS
+================================
+- When a task is completed:
+  - Checkbox feels bold and satisfying
+  - Task text is crossed out like a real pen stroke
+- Empty state (no tasks):
+  - Friendly doodle message like:
+    “Nothing left. Nice.”
+
+(No animations required, keep it subtle.)
+
+================================
+PWA REQUIREMENTS (CRITICAL)
+================================
+manifest.json:
+- name: InkTask
+- short_name: InkTask
+- display: standalone
+- background_color: #f6f1e8
+- theme_color: #f6f1e8
+
+service-worker.js:
+- Cache all static files
+- Enable offline usage
+
+index.html:
+- Correctly link manifest
+- Register service worker
+
+================================
+FINAL EXPECTATION
+================================
+- App runs immediately in Replit
+- Can be added to mobile home screen
+- Installed app looks like a native app
+- No Replit logo anywhere
+- Code is clean and readable

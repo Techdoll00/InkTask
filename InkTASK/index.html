@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>InkTask</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#f6f1e8">
+</head>
+<body>
+    <div class="app-shell">
+        <header>
+            <h1 class="logo">InkTask</h1>
+            <div class="date-nav">
+                <button id="prev-day" class="nav-btn">&lt;</button>
+                <div class="date-picker-trigger">
+                    <span id="display-date">Jan 9, Thu</span>
+                    <input type="date" id="date-picker-input">
+                </div>
+                <button id="next-day" class="nav-btn">&gt;</button>
+            </div>
+        </header>
+
+        <main id="list-area">
+            <ul id="task-list"></ul>
+            <div id="empty-state" class="empty-state">
+                <p>Nothing here. Nice.</p>
+            </div>
+        </main>
+
+        <section class="add-section">
+            <form id="task-form">
+                <div class="input-row">
+                    <input type="text" id="task-input" placeholder="+ Add task..." required>
+                    <input type="date" id="deadline-input">
+                    <button type="submit" id="add-btn">Add</button>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            <div class="footer-stats" id="task-stats">Completed 0 / 0</div>
+            <div class="footer-meta">Stored locally · Offline ready</div>
+        </footer>
+    </div>
+    
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js').then(reg => {
+                    reg.onupdatefound = () => {
+                        const installingWorker = reg.installing;
+                        installingWorker.onstatechange = () => {
+                            if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                document.getElementById('update-toast').style.display = 'block';
+                            }
+                        };
+                    };
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+You are a senior frontend engineer.
+
+Upgrade my existing minimal PWA to-do app into InkTask v2.
+
+GOALS (v2):
+1) Perfect responsive layout on ALL devices (mobile / tablet / desktop) with no overflow or cut-off.
+2) Installable as an APP (PWA) with my custom icon (no Replit branding).
+3) Date navigation improved: I can view and manage tasks for any selected date, including past dates (history).
+
+TECH REQUIREMENTS:
+- HTML + CSS + Vanilla JS only
+- No frameworks
+- No build tools
+- localStorage persistence
+- Works offline (service worker)
+- One-page app (no routing)
+- Keep the hand-drawn / doodle style, but UI must be production-clean and readable.
+
+FILES (must exist):
+- index.html
+- style.css
+- app.js
+- manifest.json
+- service-worker.js
+- icons/icon-192.png
+- icons/icon-512.png
+- icons/apple-touch-icon.png (180x180)  IMPORTANT for iOS
+
+========================================
+RESPONSIVE REQUIREMENTS (CRITICAL)
+========================================
+- Use fluid container: max-width + responsive padding.
+- Use CSS clamp() for typography and spacing.
+- Ensure the whole app fits on small screens:
+  - On mobile: header stacks or compresses; list scrolls inside app area; add-row sticks to bottom.
+- No horizontal scroll at any width.
+- Use viewport meta in index.html.
+- Use safe-area insets on iPhone (padding-bottom with env(safe-area-inset-bottom)).
+- Use a single vertical layout on mobile, and a centered card layout on desktop.
+
+Layout guidance:
+- App shell centered, max-width 920px, width: min(920px, 92vw).
+- On very small screens, width: 100vw with padding and rounded corners (or full-bleed but still “paper”).
+- The task list area should scroll if needed, but header/add/footer remain accessible.
+
+========================================
+DATE NAVIGATION (v2 FEATURE)
+========================================
+The app is NOT "today only" anymore.
+
+Implement a date selector in the header:
+- Left: "InkTask"
+- Center: date navigator
+  - Prev day button "<"
+  - Current selected date label (e.g. "Jan 9, Thu")
+  - Next day button ">"
+- Right: small "Today" button to jump back to today
+
+Also include a compact date picker (native input type="date"):
+- Clicking the date label opens a small inline date input or toggles a date picker row
+- On mobile, use native date picker input for best UX.
+
+Behavior:
+- Selected date controls which tasks are shown.
+- I can add/complete/delete tasks for that selected date.
+- I can switch dates to see historical tasks.
+
+Data model in localStorage:
+- Store tasks keyed by date (YYYY-MM-DD).
+- Example structure:
+  {
+    "2026-01-09": [{id,title,deadline,status,createdAt,completedAt}],
+    "2026-01-08": [...]
+  }
+
+Deadline logic:
+- Deadline is optional and can be any date (not necessarily equal to selected day).
+- due-soon: deadline within next 48 hours relative to TODAY (not selected day).
+- overdue: deadline before TODAY and not completed.
+- Completed tasks remain visible for the selected date, with strikethrough.
+
+Optional nice touch:
+- In the footer or header, show "Completed X / Y" for the selected date.
+
+========================================
+PWA INSTALL (CRITICAL)
+========================================
+- manifest.json must:
+  - name/short_name InkTask
+  - start_url "./"
+  - scope "./"
+  - display "standalone"
+  - background_color/theme_color #f6f1e8
+  - icons include 192 and 512 with correct paths
+- index.html must include:
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#f6f1e8">
+
+Service worker:
+- Cache: index.html, style.css, app.js, manifest.json, service-worker.js, icons/*
+- Use a CACHE_VERSION constant (e.g. "inktask-v2-001")
+- On activate, delete old caches.
+- Add a "New version available" lightweight toast when SW updates (optional but recommended).
+- Ensure icons/manifest are not stuck with old cache.
+
+========================================
+UI STYLE (KEEP BUT IMPROVE)
+========================================
+- Paper off-white background (#f6f1e8)
+- Bold black doodle lines
+- Clean spacing, readable typography
+- Calm, premium doodle — not childish
+- Minimal controls
+- Delete button only visible on hover (desktop) but always accessible on mobile (e.g. visible but subtle).
+
+Empty states:
+- If selected date has no tasks:
+  show a small doodle-style line and text:
+  "Nothing here. Nice."
+
+========================================
+FUNCTIONS (MUST WORK)
+========================================
+- Add task (inline input)
+- Toggle complete
+- Delete task
+- Optional deadline input in add row
+- Persist per date in localStorage
+- Date navigation prev/next/today and date picker jump
+- Responsive layout works on small screens without cut-off
+
+DELIVERABLE:
+Return the full project code with all files listed above.
+Make sure it runs immediately in Replit.
+No Replit branding or logo should appear in the UI or icons.
