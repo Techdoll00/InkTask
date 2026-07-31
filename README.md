@@ -1,9 +1,12 @@
 # ✅ Intask
 
-> A minimal, clean to-do list app — built from scratch with vanilla JavaScript.
+> A minimal, clean to-do list app — built from scratch with vanilla JavaScript.  
+> Designed for focus. Zero bloat.
 
 <p align="center">
-  <img src="https://img.zcool.cn/community/6959dc518f2cdlejxap8bi6656.jpg?x-oss-process=image/resize,m_fill,w_800,h_500,limit_0/auto-orient,1/sharpen,100/quality,q_80" alt="Intask Screenshot" width="600" />
+  <a href="https://www.zcool.com.cn/work/ZNzMwMzYyNzI=.html">
+    <img src="https://img.zcool.cn/community/6960d0ef85351u8hjtxdl9748.jpg?x-oss-process=image/resize,m_fill,w_800,h_500,limit_1/auto-orient,1/sharpen,100/quality,q_80" alt="Intask Screenshot" width="600" />
+  </a>
 </p>
 
 ## Why I Built This
