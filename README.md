@@ -4,8 +4,14 @@
 > Designed for focus. Zero bloat.
 
 <p align="center">
+  <a href="https://inktask.vercel.app/">
+    <img src="https://img.shields.io/badge/Live-Demo-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel" />
+  </a>
+</p>
+
+<p align="center">
   <a href="https://www.zcool.com.cn/work/ZNzMwMzYyNzI=.html">
-    <img src="https://img.zcool.cn/community/6960d0ef85351u8hjtxdl9748.jpg?x-oss-process=image/resize,m_fill,w_800,h_500,limit_1/auto-orient,1/sharpen,100/quality,q_80" alt="Intask Screenshot" width="600" />
+    <img src="https://img.zcool.cn/community/6960d0ef85351u8hjtxdl9748.jpg?x-oss-process=image/resize,m_fill,w_800,h_500,limit_1/auto-orient,1/sharpen/100,quality,q_80" alt="Intask Screenshot" width="600" />
   </a>
 </p>
 
